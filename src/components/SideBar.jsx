@@ -8,7 +8,8 @@ const SideBar = ({selectedCategory, setSelectedCategory}) =>  (
         direction="row"
         sx={{ overflowY: 'auto',
         height: { sx: 'auto', md: '95%' },
-        flexDirection: { md: 'column' } }}>
+        flexDirection: { md: 'column' },
+         }}>
             {categories.map((category) => (
                 <button
                     className='category-btn'
