@@ -1,5 +1,6 @@
 import React from 'react';
 import { Stack, Box } from '@mui/material';
+import { VideoCart, ChannelCart } from './';
 
 const Videos = ({ videos }) => {
     console.log(videos);
