@@ -6,10 +6,24 @@ import { Search }  from '@mui/icons-material';
 
 //  mr: {sm: 5} margin-right only on small devices 5px
 const SearchBar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        if(searchTerm) {
+            navigate(`/search/${searchTerm}`);
+
+            setSearchTerm(''); //Clear Search placeholder
+        }
+    }
+
     return (
         <Paper
             component='form'
-            onSubmit={() => {}}
+            onSubmit={handleSubmit}
             sx={{
                 borderRadius: 20,
                 border: '1px solid #e3e3e3',
@@ -20,9 +34,9 @@ const SearchBar = () => {
                 <input 
                     className='serch-bar'
                     placeholder='Search...'
-                    value='' 
-                    onChange={() => {}}
-                    style={{border: 'none'}}
+                    value={searchTerm} 
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    style={{border: 'none', outline: 'none'}}
                 />
                 <IconButton type='submit' sx={{p: '10px', color: 'red'}}>
                     <Search />
